@@ -1,5 +1,6 @@
 ### Quick look at EconLit data
 ### -- titles and abstracts of econ papers
+### Last updated: 26 September 2019
 
 
 library(XML)
@@ -91,51 +92,75 @@ count_mentions <- function(country.list.in, txt.list.in){
 }
 
 ## Count articles by country, first in list, then make a dataframe
-n.by.country <- sapply(all, function(x){
-    tf.list <- count_mentions(c(x),  abstracts.dt$both)
-    n <- sum(tf.list)
-    return(n)
-})
+## n.by.country <- sapply(all, function(x){
+##     tf.list <- count_mentions(c(x),  abstracts.dt$both)
+##     n <- sum(tf.list)
+##     return(n)
+## })
 
-n.country.dt <- data.frame(country = names(n.by.country),
-                           n = n.by.country)%>%
-    mutate(country = recode(country,
-                            "United States" = "USA"))
+## n.country.dt <- data.frame(country = names(n.by.country),
+##                             n = n.by.country) %>%
+##      mutate(country = recode(country,
+##                              "United States" = "USA"))
+
+## write.csv(x = n.country.dt,
+##           file = "n_articles_by_country.csv",
+##           row.names = FALSE)
+
+n.country.dt <- read.csv("n_articles_by_country.csv")
+
 
 ## Create frame with world map and paper counts
-africa.df <- map_data("world") %>%
+world.counts.df <- map_data("world") %>%
     merge(n.country.dt,
           by.x = "region",
           by.y = "country",
           all.x = TRUE) %>%
     filter(region != "Antarctica") %>%
-    mutate(paper.count =
-               cut(n, breaks = c(0, 1, 5, 10, 15,
-                                 20, 50, 100, 200, 300, 400, 500)))%>%
+    mutate(paper.breaks =
+               cut(n,
+                   breaks = c(0, 1, 5, 10, 50, 100, 500),
+                   include.lowest = TRUE),
+           paper.breaks.ch = as.character(paper.breaks),
+           paper.count = factor(
+               ifelse(is.na(paper.breaks.ch),
+                      "missing",
+                      paper.breaks.ch),
+               levels = c(levels(paper.breaks), "missing"),
+               ordered = TRUE)) %>%
     arrange(order)
 
-## Plot counts per country
-count.plot <- ggplot(africa.df,
-                     aes(x = long,
-                         y = lat, group = group,
-                         fill = paper.count)) +
-    theme_minimal()+
+### Plot counts per country ------------------------------------------
+
+green.colour.scale <- c('#c7e9c0',
+                        '#a1d99b',
+                        '#74c476',
+                        '#41ab5d',
+                        '#238b45',
+                        '#005a32',
+                        "grey")
+
+legend.title <-  paste("Number of abstracts or titles",
+                       "containing country name")
+
+count.plot <- world.counts.df %>%
+    ggplot(aes(x = long,
+               y = lat, group = group,
+               fill = paper.count)) +
+    geom_polygon() +
+    scale_fill_manual(
+        values = green.colour.scale,
+        guide = guide_legend(title =legend.title,
+                             direction = "horizontal",
+                             nrow = 1)) +
+    labs(caption = paste("Abstracts taken from Top 5 journals",
+                         " and AEJ's, 1990 to 2019")) +
+    theme_minimal() +
     theme(panel.grid = element_blank(),
           axis.text = element_blank(),
-          axis.title =  element_blank())+
-    geom_polygon()
+          axis.title =  element_blank(),
+          legend.position = "top")
 
 
-Hi everyone, I've taken a first pass at the country counts.
+ggsave("quick_country_count.pdf")
 
-I have put everything up on git.
-
-The 'journal_abstracts.csv' contains all abstracts  from Top 5 + the  AEJs
-between 1990 and 2019.
-
-The most important next step is to figure out a way of getting as many
-different spellings of a country name as  possible.
-
-'country_codes.csv' is my base file for matching country names accross the World Bank, Afrobarometer, World Values Survey and World Christian Database  but there are obviously better and more comprehensive sources for this sort of thing.
-
-Does anyone know of any of these? i.e. it would be great to have a data source that lists "Côte d'Ivoire", "Cote d'Ivoire", "Ivory Coast" etc.
