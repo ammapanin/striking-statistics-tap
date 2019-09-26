@@ -1,0 +1,56 @@
+
+\documentclass{article}
+\usepackage{multirow}
+
+%%\input{$HOME/defaults} %$
+\title{ Preliminary look at road cost data}
+
+\begin{document}
+\maketitle
+
+
+The World Bank maintains the Road Costs Knowledge (ROCKS) database,
+which compiles data on the cost of road construction
+projects\footnote{https://www.doingbusiness.org/en/reports/thematic-reports/road-costs-knowledge-system}. ROCKS
+was first compiled in *** for *** y. It was updated by the Doing
+Business group in XXX to cover projects that took place between X and
+Y. A single project may involve
+multiple components, which are segments of roads, and each component
+may be comprised of different road sections. A given project may
+have interesting variation between its components and sections.
+However, this document focuses on costs at the project level,
+therefore the unit of analysis is a road construction project. The dataset consists of \Sexpr{n.projects} distinct projects in
+\Sexpr{n.countries} different countries. Figure \ref{fig_world_map}
+maps the extent of coverage around the world.
+
+\begin{figure}
+  \caption{Number of projects per country in ROCKS database}
+\label{fig_world_map}
+\makebox[\textwidth][c]{
+  \includegraphics[width = 1.6\textwidth]{figures/coverage_map.pdf}
+  }
+\end{figure}
+
+\input{tables/data_count_table.tex}
+
+\begin{figure}
+  \caption{Distribution of project costs}
+\label{fig_world_map}
+\makebox[\textwidth][c]{
+  \includegraphics[width = 1.5\textwidth]{figures/cost_histogram.pdf}
+  }
+\end{figure}
+
+
+\begin{figure}
+  \caption{Estimated against actual costs}
+\label{fig_estimate_actual}
+\makebox[\linewidth][c]{
+  \includegraphics[width = 1.5\textwidth]{figures/estimate_actual.pdf}
+  }
+\end{figure}
+
+
+
+
+\end{document}

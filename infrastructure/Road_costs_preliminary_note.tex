@@ -1,0 +1,76 @@
+
+\documentclass{article}
+\usepackage{multirow}
+\usepackage{lscape}
+
+%%\input{$HOME/defaults} %$
+\title{ Preliminary look at road cost data}
+
+\usepackage{Sweave}
+\begin{document}
+\maketitle
+
+The World Bank maintains the Road Costs Knowledge (ROCKS) database,
+which compiles data on the cost of road construction
+projects\footnote{https://www.doingbusiness.org/en/reports/thematic-reports/road-costs-knowledge-system}. ROCKS
+was first compiled in 1999, and updated once in 2008 and most recently
+in 2018 by the Doing
+Business group. The total database covers 3911 road
+constructuion  projects in 110 countries. Projects in the
+database were started between 1984 and 2017. A single project may
+involve multiple components.  A component may be comprised of different
+road sections. Work activities in the database are described at the
+section level. For example, within the same project, one section of a
+road may be widened while the next section may be  graded or
+regravelled. Therefore, road work activities at the section level are
+the unit of analysis throughout the document. Figure
+\ref{fig_world_map} maps the extent of coverage around the
+world. Table \ref{tab_count_sources} describes the different types of
+data appearing in the database. Figure \ref{fig_cost_distribution}
+presents a first look at the distribution of costs. Figure
+\ref{fig_estimate_actual} plots actual versus estimated costs for the
+557 work activities where the data exists. Finally,
+\ref{fig_cost_length_overrun} plots the discrepancies between planned
+and estimated costs against discrepancies in planned and estimated
+road length.
+
+\begin{figure}
+  \caption{Number of work activities per country in ROCKS database}
+\label{fig_world_map}
+\makebox[\textwidth][c]{
+  \includegraphics[width = 1.6\textwidth]{figures/coverage_map.pdf}
+  }
+\end{figure}
+
+\input{tables/data_count_table.tex}
+
+\begin{landscape}
+\begin{figure}
+  \caption{Distribution of project costs}
+\label{fig_cost_distribution}
+\makebox[\linewidth][c]{
+  \includegraphics[width = 2\textwidth]{figures/cost_histogram.pdf}
+  }
+\end{figure}
+
+
+\begin{figure}
+  \caption{Estimated against actual costs}
+\label{fig_estimate_actual}
+\makebox[\linewidth][c]{
+  \includegraphics[width = 1.5\textwidth]{figures/estimate_actual.pdf}
+  }
+\end{figure}
+
+\begin{figure}
+  \caption{Cost and length overruns}
+\label{fig_cost_length_overrun}
+\makebox[\linewidth][c]{
+  \includegraphics[width = 2\textwidth]{figures/road_cost_length_overrun.pdf}
+  }
+\end{figure}
+
+\end{landscape}
+
+
+\end{document}

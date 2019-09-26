@@ -1,0 +1,81 @@
+### Quick look at EconLit data
+### -- titles and abstracts of econ papers
+
+
+library(XML)
+
+###  Read in data ----------------------------------------------------
+
+##records <- xmlParse("data/top5_plus_aej_1990_to_2019.xml")
+##records_data <- xmlToList(records)
+
+## Get list of countries and regions
+## (List is Amma's csv containing country names and codes
+##  across datasets, use the World Bank names as a first pass)
+
+country.codes <- read.csv("data/country_codes.csv",
+                          stringsAsFactors = FALSE)
+
+all.countries <- country.codes %>%
+    pull(wb) %>%
+    as.character()
+
+africa.countries <- country.codes %>%
+    filter(region == "Sub-Saharan Africa") %>%
+    pull(wb) %>%
+    as.character()
+
+get_useful_info <- function(xml.in){
+    ## EconLit exports data in xml form
+    ## Go through the stored data and return a dataframe
+    ## containing the title, abstract and a title + abstract
+    ## string called 'both'
+
+    xml.useful <- xml.in[[1]]
+    abstract <- xml.useful$controlInfo$artinfo$ab
+    title <- xml.useful$controlInfo$artinfo$tig$atl
+
+    title <- ifelse(is.null(title), "", title)
+    abstract <- ifelse(is.null(abstract),"", abstract)
+    both = paste(title, abstract)
+
+    dt.out <- data.frame(title = title,
+                         abstract =  abstract,
+                         both,
+                         stringsAsFactors = FALSE)
+
+    return(dt.out)
+}
+
+check_country_mention <- function(txt.to.check,
+                                  country.list){
+    ## Wrapper function to check if a set of countries in
+    ## 'country.list' occur in 'txt.to.check'
+
+    in.country.true <- sapply(country.list,
+           function(x){
+               grepl(tolower(x),
+                     tolower(txt.to.check))
+           })
+    return(sum(in.country.true) > 0)
+}
+
+count_mentions <- function(country.list.in, txt.list.in){
+    ## Count how many times any of the countries in
+    ## 'country.list.in' occur in the  txt.list.in
+
+    count.list <- sapply(txt.list.in,
+                         check_country_mention,
+                         country.list = country.list.in,
+                         USE.NAMES = FALSE)
+    return(count.list)
+}
+
+
+## Extract useful information from xml and make a
+## data frame
+abstract.dt.list <- lapply(records_data, get_useful_info)
+abstract.dt <- do.call(rbind, abstract.dt.list)
+
+N.all <- count_mentions(all, abstract.dt$both)
+N.africa <- count_mentions(africa, abstract.dt$both)

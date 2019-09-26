@@ -1,0 +1,60 @@
+### Code to analyse the data underlying the ROCKS database
+### Last updated: 10 September 2019
+
+library(tidyverse)
+library(maptools) # to get a simple world map
+library(xtable)
+library(RColorBrewer)
+
+
+### Load paths -------------------------------------------------------
+
+infrastructure.folder <- file.path(normalizePath("~"),
+                                   "Dropbox",
+                                   "Work Documents",
+                                   "World Bank",
+                                   "amma_striking_stats_local",
+                                   "infrastructure")
+
+setwd(infrastructure.folder)
+
+
+### Load data --------------------------------------------------------
+
+wb.in <- readRDS("data/wb_indicators_clean.Rds")
+
+rocks.path <- "data/rocks_combined_1994-2018.csv"
+rocks.in <- read.csv(rocks.path, stringsAsFactors = FALSE)
+
+rocks <- rocks.in %>%
+    filter(cost_type != "Ratio") %>%
+    mutate(work_category = ifelse(grepl("New", work_type),
+           "new_construction",
+           "maintenance_and_upgrade"))
+
+
+### Define input selection functions  --------------------------------
+
+get_list_of_work_types <- function(input.in, dt.in = rocks){
+    list.out <- dt.in %>%
+        filter(work_category == input.in) %>%
+        pull(work_type) %>%
+        unique()
+
+    return(list.out)
+}
+
+get_available_countries <- function(work_category,
+                                    work_type,
+                                    dt.in = rocks){
+    list.out <- dt.in %>%
+        filter(work_category == input.in) %>%
+        filter(work_type %in% work_types) %>%
+        pull(countries)  %>%
+        unique()
+
+    return(list.out)
+}
+
+
+get_year_bounds <- function(){}
