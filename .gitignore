@@ -1,3 +1,6 @@
 # Local folders to not track
 electricity_dump/
 
+
+# Files to not track
+.DS_Store
