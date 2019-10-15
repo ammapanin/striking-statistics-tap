@@ -1,0 +1,5 @@
+
+
+rt <- search_tweets(
+  "#econtwitter", n = 18000, include_rts = FALSE
+)
