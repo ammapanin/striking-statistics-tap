@@ -389,9 +389,9 @@ count.plot <- counts_by_journal_category.df %>%
 count.plot
 
 
-ggsave("country_count_by_outlet.png",
-       width =13.7, height = 16.6, units = "cm")
-
+ggsave(plot =  count.plot,
+       filename =  "country_count_by_outlet.png",
+       width = 13.7, height = 16.6, units = "cm")
 
 
 ### Plot counts per year per region ----------------------------------
@@ -449,3 +449,9 @@ year.plot <- plot.dt %>%
           plot.title =  element_text(face = "bold"))
 
 year.plot
+
+ggsave(plot =year.plot,
+       filename = "counts_by_year.pdf",
+       width = 23.5,
+       height = 9.044392,
+       units = "cm")
