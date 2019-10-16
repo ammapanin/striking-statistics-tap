@@ -435,8 +435,9 @@ year.plot <- plot.dt %>%
     scale_colour_brewer(type = "qual", palette ="Set1") +
     geom_line() +
     geom_point() +
-    labs(title = paste("What proportion of economics journal",
-                       "abstracts mention Africa?"),
+    labs(title = paste("Has the proportion of economics",
+                       "journal abstracts",
+                       "mentioning Africa changed over the years?"),
          x = element_blank(),
          y = "Proportion of abstracts in journal category")+
     geom_text(data =  journal.labs.df,
