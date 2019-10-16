@@ -2,7 +2,6 @@
 ### -- titles and abstracts of econ papers
 ### Last updated: 26 September 2019
 
-
 library(XML)
 library(tidyverse)
 library(stringr)
@@ -31,7 +30,7 @@ get_useful_info <- function(xml.in){
     journal <- xml.useful$jinfo$jtl
 
     date_text <- xml.useful$pubinfo$dt$text
-    date <- as.Date("20100901", format = "%y%m%d")
+    date <- as.Date(date_text, format = "%Y%m%d")
 
     year <- format(date, "%Y")
     month <- format(date, "%m")
@@ -72,10 +71,6 @@ open_xml_to_dataframe <- function(xml.path){
 
 ### Process XML files ------------------------------------------------
 
-## xml.list <- list.files("data",
-##                        pattern = "xml",
-##                        full.names =  TRUE)
-
 ### Journal classifications
 journal.recodes <- c(
     "World Development" = "dev",
@@ -112,22 +107,6 @@ long.category.names <- c("Development journals",
 names(long.category.names) <- short.category.names
 
 
-### Only run once to produce data frame!------------------------------
-
-## journal.data.dfs <- plyr::ldply(xml.list,
-##                                 open_xml_to_dataframe,
-##                                 .progress = "text")
-
-## journal.data.dfs.processed <- journal.data.dfs %>%
-##    mutate(journal_cat = recode(journal, !!!journal.recodes))
-
-## write.csv(x = journal.data.dfs,
-##           file = "data/journal_abstracts.csv",
-##           row.names = FALSE)
-
-
-
-
 ### Count country mentions in abstracts and titles -------------------
 ## Get list of countries and regions
 ## Use helpful github page https://github.com/mledoze/countries
@@ -137,12 +116,18 @@ country.codes <- read.csv("data/countries.csv",
     mutate(names_list = paste(name, demonym, sep = ","),
            names_list = gsub(",,",  ",",  names_list))
 
-africa <- data.frame("Africa,African", "AFR") %>%
-    rename(names_list = 1, cca3 = 2)
+wb.codes <- read.csv("data/amma_country_codes.csv",
+                     stringsAsFactors = FALSE) %>%
+    select(code, region)
+
+africa.region.codes <- filter(wb.codes,
+                              region == "Sub-Saharan Africa") %>%
+    pull(code)
 
 all.countries <- country.codes %>%
     select(cca3, names_list) %>%
-    rbind(africa)
+    rbind(data.frame("Africa,African", "AFR") %>%
+          rename(names_list = 1, cca3 = 2))
 
 is_country_in_abstract <- function(names_list, abstract.in){
     ## Wrapper function to check if a set of countries in
@@ -192,12 +177,32 @@ count_mentions_of_country <- function(country.list.in){
     return(tab.df)
 }
 
-## total.counts <- check_abstract_list(journal.data.dfs$both)
-## saveRDS(total.counts, file = "data/total_counts.Rds")
+### Only run once to produce data frame!------------------------------
 
+## xml.list <- list.files("data",
+##                        pattern = "xml",
+##                        full.names =  TRUE)
+
+## journal.data.dfs <- plyr::ldply(xml.list,
+##                                 open_xml_to_dataframe,
+##                                 .progress = "text") %>%
+##    mutate(journal_cat = recode(journal, !!!journal.recodes))
+
+## total.counts <- check_abstract_list(journal.data.dfs$both)
+
+## journal.data.dfs.with.counts <- journal.data.dfs
+
+## journal.data.dfs.with.counts <- data.frame(
+##     journal.data.dfs,
+##     country_mention_counts = I(total.counts[[1]]))
+
+## saveRDS(total.counts, file = "data/total_counts.Rds")
+## saveRDS(journal.data.dfs.with.counts,
+##         file = "data/journals_with_counts.Rds")
 
 ## Read-in general data ----------------------------------------------
-dt <- readRDS("journals_with_counts.Rds")
+dt <- readRDS("data/journals_with_counts.Rds")%>%
+    filter(journal_cat  !=  "extra")
 
 ## Create frame with world map and paper counts  ---------------------
 world.counts.df <- map_data("world") %>%
@@ -277,7 +282,7 @@ counts_by_journal_category.list <-
                 .variables = "journal_cat",
                 .fun = function(xdf){
                     vout <- count_mentions_of_country(
-                        xdf[["abstract.mentions"]])
+                        xdf[["country_mention_counts"]])
                 })
 
 journal_category_names <- attr(counts_by_journal_category.list,
@@ -298,9 +303,24 @@ counts_by_journal_category.df <- do.call(
                                 levels = rev(long.category.names),
                                 ordered = TRUE))
 
+### Break up data according to year ----------------------------------
+
+counts_by_year.df <-
+    plyr::dlply(dt,
+                .variables = c("journal_cat", "year"),
+                .fun = function(xdf){
+                    vout <- count_mentions_of_country(
+                        xdf[["country_mention_counts"]])
+                }) %>%
+    plyr::ldply(identity) %>%
+    merge(wb.codes,
+          by.x = "country",
+          by.y = "code",
+          all.x = TRUE)
+
 
 ### Plot counts per country ------------------------------------------
-
+### !!!Perhaps later change this to use haromized data frame
 colour_function <- colorRampPalette(c("#E2E2E2", "#005a32"))
 count.palette <- count.breaks
 count.palette[[1]] <- 1
@@ -328,7 +348,7 @@ chart_caption <- expression(
               "1990 to 2019. Code, data and list of journals ",
               "at github.com/ammapanin"))))
 
-legend.title <-  paste("Number of abstracts or titles",
+legend.title <-  paste("Number of abstracts or titles\n",
                        "containing country name")
 
 count.plot <- counts_by_journal_category.df %>%
@@ -338,12 +358,15 @@ count.plot <- counts_by_journal_category.df %>%
     geom_polygon() +
     scale_fill_manual(
         values = green.colour.scale,
-        guide = guide_legend(title = legend.title,
-                             title.position ="top",
-                             direction = "horizontal",
-                             nrow = 2,
-                             byrow = TRUE,
-                             override.aes = list(size = 5))) +
+        guide = guide_legend(
+            title = legend.title,
+            title.position = "top",
+            direction = "vertical",
+                                        #nrow = 2,
+                                        #byrow = TRUE,
+            override.aes = list(size = 1, shape = 3),
+            keywidth = unit(.4, "cm"),
+            keyheight = unit(.4, "cm"))) +
     labs(caption = chart_caption,
          title = paste("Africa is not of general interest",
                        "to the economics profession"),
@@ -352,10 +375,10 @@ count.plot <- counts_by_journal_category.df %>%
     theme(panel.grid = element_blank(),
           axis.text = element_blank(),
           axis.title =  element_blank(),
-          legend.title = element_text(size = 8),
-          legend.text = element_text(size = 8),
+          legend.title = element_text(size = 6),
+          legend.text = element_text(size = 6),
           legend.margin = margin(t = 0.8, b = 0.5, unit='cm'),
-          legend.position = "top",
+          legend.position = "right",
           plot.caption = element_text(size = 7,
                                       hjust = 0),
           plot.title = element_text(hjust = 0,
@@ -366,7 +389,62 @@ count.plot <- counts_by_journal_category.df %>%
 count.plot
 
 
-
 ggsave("country_count_by_outlet.pdf",
        width =13.7, height = 16.6, units = "cm")
 
+
+
+### Plot counts per year per region ----------------------------------
+
+dt.year <- counts_by_year.df %>%
+    group_by(year, journal_cat) %>%
+    mutate(year_category_total = sum(frequency)) %>%
+    group_by(region, year, journal_cat, year_category_total) %>%
+    summarise(reg.year.tot = sum(frequency)) %>%
+    mutate(cat_freq = reg.year.tot / year_category_total)
+
+
+africa.dt.year <- dt.year %>%
+    filter(region == "Sub-Saharan Africa")
+
+short.category.names <- c("dev", "general", "top5")
+journal.year.names <- c("development",
+                        "other general interest",
+                        "top 5")%>%
+    setNames(short.category.names)
+
+
+plot.dt <- africa.dt.year %>%
+    ungroup() %>%
+    mutate(year = factor(year,
+                         levels = seq(1990, 2025)))
+
+
+journal.labs.df <- data.frame(africa.dt.year %>%
+                              filter(year == 2019)%>%
+                              select(cat_freq, journal_cat)) %>%
+    mutate(journal_lab = recode(journal_cat, !!!journal.year.names))
+
+year.plot <- plot.dt %>%
+    ggplot(aes(x = year,
+               y = cat_freq,
+               colour = journal_cat,
+               group = journal_cat)) +
+    scale_x_discrete(breaks = seq(1990, 2029, by = 5),
+                     drop = FALSE) +
+    scale_colour_brewer(type = "qual", palette ="Set1") +
+    geom_line() +
+    geom_point() +
+    labs(title = paste("What proportion of economics journal",
+                       "abstracts mention Africa?"),
+         x = element_blank(),
+         y = "Proportion of abstracts in journal category")+
+    geom_text(data =  journal.labs.df,
+              aes(x = year, y=cat_freq, label = journal_lab),
+              hjust = 0,
+              nudge_x = 0.5) +
+    theme_minimal() +
+    theme(legend.position = "none",
+          plot.title =  element_text(face = "bold"))
+
+year.plot
