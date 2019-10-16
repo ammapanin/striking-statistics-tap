@@ -389,7 +389,7 @@ count.plot <- counts_by_journal_category.df %>%
 count.plot
 
 
-ggsave("country_count_by_outlet.pdf",
+ggsave("country_count_by_outlet.png",
        width =13.7, height = 16.6, units = "cm")
 
 
