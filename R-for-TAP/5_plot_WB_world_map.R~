@@ -1,0 +1,22 @@
+## Sample code to plot World Bank map
+
+library(tidyverse)
+library(sf)
+
+world.shapefile.path <- file.path("R code to update and manage database",
+                                  "WB country polygons",
+                                  "WB_CountryPolys.shp")
+world.boundaries <- read_sf(world.shapefile.path)
+
+continental.african.countries <- world.boundaries$ISO_Codes %>%
+  unique() %>%
+  data.frame() %>%
+  rename("country" = 1) %>%
+  mutate(continent = countrycode(sourcevar = .$country,
+                                 origin = "iso3c",
+                                 destination = "continent"),
+         country = countrycode(sourcevar = .$country,
+                               origin = "iso3c",
+                               destination = "iso3c")) %>%
+  filter(continent == "Africa") %>%
+  pull(country)
