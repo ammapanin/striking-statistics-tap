@@ -1,0 +1,62 @@
+﻿Country Name,Country Code,Series Name,Series Code,2000 [YR2000],2001 [YR2001],2002 [YR2002],2003 [YR2003],2004 [YR2004],2005 [YR2005],2006 [YR2006],2007 [YR2007],2008 [YR2008],2009 [YR2009],2010 [YR2010],2011 [YR2011],2012 [YR2012],2013 [YR2013],2014 [YR2014],2015 [YR2015],2016 [YR2016],2017 [YR2017],2018 [YR2018],2019 [YR2019]
+Angola,AGO,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,6.7,..,..,..,..,..,..,..,..,..
+Benin,BEN,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,7,..,..,..,..,..,..,17.9,..,..,..
+Botswana,BWA,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,1.3,..,..,..,6.2,..,..,..,..,..,..,..,..,..
+Burkina Faso,BFA,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,2.8,..,..,7.4,..,..,..,..,..,..,..,..,..,..
+Burundi,BDI,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,..,..,..,20.6,..,..,..,..,..
+Cabo Verde,CPV,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..
+Cameroon,CMR,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,4.3,..,..,15.1,..,..,..,..,..,..,6.7,..,..,..
+Central African Republic,CAF,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,9.5,..,..,..,..,..,..,..,..
+Chad,TCD,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,11.9,..,..,..,..,..,..,..,..,..,..
+Comoros,COM,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..
+"Congo, Dem. Rep.",COD,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,3.6,..,..,..,18,..,..,6.3,..,..,..,..,..,..
+"Congo, Rep.",COG,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..
+Cote d'Ivoire,CIV,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,16.6,..,..,..,..,..,..,19.6,..,..,..
+Equatorial Guinea,GNQ,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..
+Eritrea,ERI,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,9.6,..,..,..,..,..,..,..,..,..,..
+Eswatini,SWZ,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,2.1,..,..,..,..,..,..,..,..,..,4.1,..,..,..
+Ethiopia,ETH,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,4.3,..,..,..,..,15.8,..,..,..,7.7,..,..,..,..
+Gabon,GAB,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,3.8,..,..,..,..,..,..,..,..,..,..
+"Gambia, The",GMB,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,5,..,..,..,..,..,..,..,..,..,..,..,4.8,..
+Ghana,GHA,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,7.8,..,..,..,..,..,7.8,..,..,..,..,..,..
+Guinea,GIN,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,4.3,..,..,..,..,..,..,..,..,..,..,..,..,..
+Guinea-Bissau,GNB,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,5.6,..,..,..,..,..,..,..,..,..,..,..,..,..
+Kenya,KEN,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,5.6,..,..,..,..,..,10.3,..,..,..,..,9.7,..
+Lesotho,LSO,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,5.4,..,..,..,..,..,..,4,..,..,..
+Liberia,LBR,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,10,..,..
+Madagascar,MDG,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,14.2,..,..,..,8.6,..,..,..,..,..,..
+Malawi,MWI,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,9.9,..,..,..,..,11.4,..,..,..,..,..
+Mali,MLI,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,4.8,..,..,12.9,..,..,..,..,..,16.5,..,..,..
+Mauritania,MRT,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,3.9,..,..,..,..,..,..,..,26,..,..,..,..,..
+Mauritius,MUS,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,10.3,..,..,..,..,..,..,..,..,..,..
+Mozambique,MOZ,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,10.1,..,..,..,..,..,..,..,..,..,..,39.3,..
+Namibia,NAM,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,1.4,..,..,..,..,..,..,..,8.2,..,..,..,..,..
+Niger,NER,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,4,..,..,2.6,..,..,..,..,..,..,..,..,..,..
+Nigeria,NGA,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,7.5,..,..,..,..,..,..,6,..,..,..,..,..
+Rwanda,RWA,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,6.7,..,..,..,..,10.2,..,..,..,..,..,..,..,..
+Sao Tome and Principe,STP,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..
+Senegal,SEN,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,7.4,..,..,..,..,..,..,7.1,..,..,..,..,..
+Seychelles,SYC,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..
+Sierra Leone,SLE,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..
+Somalia,SOM,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..
+South Africa,ZAF,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,4.5,..,..,..,..,..,..,..,..,..,..,..,..
+South Sudan,SSD,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..
+Sudan,SDN,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..
+Tanzania,TZA,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,5.7,..,..,..,..,..,..,12.4,..,..,..,..,..,..
+Togo,TGO,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,6.7,..,..,..,..,..,..,8.2,..,..,..
+Uganda,UGA,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,3.2,..,..,..,..,..,..,10,..,..,..,..,..,..
+Zambia,ZMB,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,2.3,..,..,..,..,..,10.7,..,..,..,..,..,..
+Zimbabwe,ZWE,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,4.9,..,..,..,..,5.9,..,..,..
+East Asia & Pacific,EAS,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,7.08333333333333
+East Asia & Pacific (IDA & IBRD countries),TEA,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,7.08333333333333
+European Union,EUU,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,4.225
+Euro area,EMU,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,4.44444444444444
+Sub-Saharan Africa,SSF,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,11.4518518518518
+Latin America & the Caribbean (IDA & IBRD countries),TLA,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,7.73076923076923
+Sub-Saharan Africa (IDA & IBRD countries),TSS,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,11.4518518518519
+Latin America & Caribbean,LCN,Average time to clear exports through customs (days),IC.CUS.DURS.EX,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,7.73076923076923
+,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,
+Data from database: World Development Indicators,,,,,,,,,,,,,,,,,,,,,,,
+Last Updated: 02/27/2020,,,,,,,,,,,,,,,,,,,,,,,
