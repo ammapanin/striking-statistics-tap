@@ -2,8 +2,7 @@
 ## March 2020
 ## apanin@worldbank.org
 
-## This is the first script in the series
-## We will do the following:
+## We will do the following in this scrip:
 ## --load the data as it is downloaded from the WDI
 ## --wrangle it into a form that we can use for easy analysis
 
@@ -135,91 +134,61 @@ write.csv(x = export.use.simple,
           file =  export.use.out.path,
           row.names = FALSE)
 
+### Create a panel version of the exports dataset for the animation
+## added on 13 March 2020
 
+years.14.to.19 <- paste("y", seq(2014, 2019), sep = "")
 
+export.panel.df <- export.renamed %>%
+    select(country = Country.Name,
+           ccode = Country.Code,
+           one_of(years.14.to.19)) %>%
+    ## Remove empty rows in the data
+    filter(ccode != "") %>%
+    ## Merge the export data with the landlocked data
+    merge(landlocked.countries,
+          by.x = "ccode",
+          by.y = "ccode",
+          all.x = TRUE) %>%
+    ## Create some new columns and change the type of some existing
+    ##  ones
+    mutate(## The regions do not have is.landlocked variables,
+           ## --therefore replace their is.landlocked value with 0
+           ## --and then change is.landlocked to text
+           is.landlocked = ifelse(is.na(is.landlocked), 0,
+                                  is.landlocked),
+           is.landlocked = ifelse(is.landlocked == 0,
+                                  "Has sea port",
+                                  "Landlocked"),
+           ## Create a TRUE/FALSE column for if the row represents
+           ##  a region rather than a country
+           comparator.region = country %in% regions,
+           ## Create a TRUE/FALSE column for if the country name
+           ##  in a row contains the phrase'IDA&IBRD'
+           ida.region = grepl("IDA & IBRD", country),
+           ## Create a character vector listing the group of data
+           plot.group.char = ifelse(ida.region == TRUE,
+                                    ida.region.lab,
+                             ifelse(comparator.region == TRUE,
+                                    comparator.region.lab,
+                                    ssa.region.lab)),
+           ## Turn the character vector into a factor
+           plot.group = factor(plot.group.char,
+                               levels = plot.order,
+                               ordered = TRUE)) %>%
+    ## Putting '-' in front of columns means that we
+    ##  drop these columns. Good, since we will no longer use them
+    select(-c(plot.group.char, ida.region, comparator.region)) %>%
+    filter(ccode != "Euro area") %>%
+    pivot_longer(cols = starts_with("y2"),
+                 names_to = "year",
+                 names_prefix = "y",
+                 values_to = "time.hours")%>%
+    mutate(time.hours = as.numeric(as.character(time.hours)))
 
-
-
-
-## Create a list of countries ordered by the time in hours
-ordered.countries.list <- export.use %>%
-    arrange(time_hours)  %>%
-    select(country) %>%
-    pluck(1) %>%
-    as.character() %>%
-    unique()
-
-## We will plot some 'fake countries' called LAB 1 and LAB 2
-## This is a way of leaving space on the plot for the labels
-ordered.countries <-
-
-
-### Create the data frame that will be used for plotting -------------
-
-
-
-
-export.plot <- ggplot(export.plot.df) +
-    geom_col(aes(x = country,
-                 y = time.hours,
-                 fill = is.landlocked),  width = 0.8) +
-    coord_flip() +
-    facet_grid(rows = vars(plot.group),
-               space = "free_y",
-               scales = "free_y") +
-    ylab(axis.title) +
-    labs(title = chart.title,
-         subtitle = chart.subtitle,
-         caption = chart.notes) +
-    scale_fill_manual(values = plot.blues) +
-    scale_y_continuous(expand = c(0,0)) +
-    scale_x_discrete(breaks = names.to.plot)+
-    geom_text(data = plot.labels,
-              aes(x =  x, y = y, label = text,
-                  size = 2),
-              nudge_x = 1,
-              hjust = 0,
-              size = 3)  +
-    theme_minimal()  +
-    theme(axis.title.y = element_blank(),
-          axis.text.y = element_text(size = 6),
-          axis.title.x = element_text(
-              margin = margin(t = 0.2, unit = "cm")),
-          strip.text = element_blank(),
-          panel.grid.major.y = element_blank(),
-          legend.direction = "horizontal",
-          legend.position =  c(0.6, 0.7),
-          legend.title = element_blank(),
-          plot.caption = element_text(
-              hjust = 0,
-              size = 7,
-              margin = margin(t = 0.5, unit = "cm")),
-          plot.subtitle = element_text(
-              margin = margin(b = 0.5, unit = "cm")),
-          plot.title.position = "plot",
-          plot.caption.position = "plot")
-
-
-add.e4t.branding <- function(plot, plot_name){
-    ggsave("stats_map.png",
-           width = 21.5,
-           height = 17.5,
-           units = "cm",
-           plot = plot)
-
-    stats.png <- image_read("stats_map.png")
-
-    logo <- image_read("e4t_logo.png")%>%
-        image_resize("x150")
-
-    twitter <- image_read("e4t_twitter.png") %>%
-        image_resize("x90")
-
-    fred <- image_composite(stats.png, logo,
-                            offset = "+2050+0") %>%
-        image_composite(twitter, offset = "+1950+1950")
-
-    return(fred)
-}
+export.panel.out.path <- "datasets/export_times_panel.csv"
+write.csv(x = export.panel.df,
+          file =  export.panel.out.path,
+          row.names = FALSE)
 
 
