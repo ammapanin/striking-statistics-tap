@@ -118,7 +118,7 @@ data.to.plot <- merge(africa.boundaries.df,
 ## I like to add theme_minimal because it takes away the gray of the
 ## default ggplot
 landlocked.africa.plot <- ggplot(data.to.plot) +
-    geom_sf(aes(fill = is.landlocked)) +
+    geom_sf(aes(fill = is.landlocked))
     theme_minimal()
 
 ## View with
@@ -130,3 +130,17 @@ landlocked.africa.plot
 ## - countrycode did not find Western Sahara, manually fix that
 ## - remove lines of latitude and longitude, etc.
 ## - ...
+
+
+country.centroids <- read_sf(
+    file.path("datasets",
+              "country_centroids_az8",
+              "country_centroids_az8.shp")) %>%
+    filter(region_un == "Africa")
+
+
+with.population.plot <- landlocked.africa.plot +
+    geom_point(data = country.centroids,
+               aes(x = Longitude,
+                   y = Latitude,
+                   size = pop_est))
