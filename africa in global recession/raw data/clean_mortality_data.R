@@ -1,0 +1,126 @@
+library(tidyverse)
+
+data.path <- file.path("mortality.csv")
+
+
+dt.in <- read.csv(data.path, stringsAsFactors = FALSE)
+
+
+series.female <- "Mortality rate, adult, female (per 1,000 female adults)"
+series.male <- "Mortality rate, adult, male (per 1,000 male adults)"
+
+
+fix.wb.years <- function(yr.in){
+    year <- substr(yr.in, start =  2, stop = 5)
+    year.name <- paste0("y", year)
+    return(year.name)
+}
+
+
+
+dt <- dt.in %>%
+    mutate(gender = ifelse(Series.Name == series.female,
+                                "female",
+                                "male")) %>%
+    rename_at(.vars = vars(starts_with("X")),
+              .funs  = fix.wb.years) %>%
+    mutate_at(.vars = vars(starts_with("y")),
+              .funs = as.numeric) %>%
+    select(country = Country.Name,
+           ccode = Country.Code,
+           gender,
+           starts_with("y")) %>%
+    pivot_longer(cols = starts_with("y"),
+                 names_to = "year",
+                 names_prefix = "y",
+                 values_to = "mortality")%>%
+    filter(ccode != "") %>%
+    mutate(mortality = as.numeric(mortality)) %>%
+    group_by(country, gender) %>%
+    group_modify(.f = function(df.in, group.var =  .y, ...){
+        new.df.out = mutate(df.in,
+                            mortality.diff = c(0, diff(mortality)))
+        return(new.df.out)
+    })
+
+order.in.2017 <- dt %>%
+    filter(year == 2017) %>%
+    arrange(mortality) %>%
+    pull(ccode) %>%
+    unique()
+
+dt.plot <- dt %>%
+    mutate(ccode = factor(ccode,
+                          levels = order.in.2017,
+                          ordered = TRUE))
+
+dt.time <-  dt.plot %>%
+    group_by(ccode, year) %>%
+    summarise(
+        mortality.diff = mean(mortality.diff, na.rm =  TRUE),
+        mortality = mean(mortality, na.rm = TRUE))
+
+
+pre.recession <- seq(2003, 2007)
+great.recession <- seq(2008, 2012)
+post.recession <- seq(2013, 2017)
+
+plot.years <- c(pre.recession,
+                great.recession,
+                post.recession)
+
+quick.comparison.countries <- c("MUS","CPV",
+                                "GHA", "SWZ",
+                                "TZA", "BEN")
+
+plot.max <- 610
+recession.rect <- data.frame(
+    xmin = factor(min(great.recession), levels = plot.years),
+    xmax = factor(max(great.recession), levels = plot.years),
+    ymin = 0,
+    ymax = plot.max)
+
+recession.rect <- data.frame(
+    xmin = 5.5,
+    xmax = 10.5,
+    ymin = 0,
+    ymax = plot.max)
+
+
+mortality.in.2017 <- dt.plot %>%
+    filter(year == 2017) %>%
+    ggplot(aes(x = ccode, y =  mortality, colour = gender)) +
+    geom_point() +
+    theme_minimal() +
+    theme(axis.text.x = element_text(size = 5))
+
+
+mortality.over.time <- dt.time %>%
+    filter(year %in% plot.years) %>%
+    filter(ccode %in% quick.comparison.countries) %>%
+    ggplot() +
+    scale_y_continuous(limits = c(0, plot.max)) +
+    geom_point(aes(x = year, y = mortality, colour = ccode))+
+    geom_rect(inherit.aes = FALSE,
+              data = recession.rect,
+              mapping = aes(
+                  xmin= xmin, xmax = xmax, ymin= ymin, ymax=ymax),
+              alpha =  0.3)+
+    theme_minimal() +
+    theme(axis.text.x = element_text(size = 5))
+
+
+mortality.changes.over.time <- dt.time %>%
+    filter(year %in% plot.years) %>%
+    filter(ccode %in% quick.comparison.countries) %>%
+    ggplot() +
+#    scale_y_continuous(limits = c(0, plot.max)) +
+    geom_point(aes(x = year, y = mortality.diff, colour = ccode))+
+#    geom_rect(inherit.aes = FALSE,
+#              data = recession.rect,
+#              mapping = aes(
+#                  xmin= xmin, xmax = xmax, ymin= ymin, ymax=ymax),
+#              alpha =  0.3)+
+    theme_minimal() +
+    theme(axis.text.x = element_text(size = 5))
+

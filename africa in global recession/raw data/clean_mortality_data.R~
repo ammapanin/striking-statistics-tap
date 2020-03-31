@@ -1,0 +1,2 @@
+
+data.path <- file.path("mortality.csv")
