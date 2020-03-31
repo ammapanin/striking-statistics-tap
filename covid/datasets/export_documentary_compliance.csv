@@ -1,0 +1,62 @@
+Country Name,Country Code,Series Name,Series Code,2000 [YR2000],2001 [YR2001],2002 [YR2002],2003 [YR2003],2004 [YR2004],2005 [YR2005],2006 [YR2006],2007 [YR2007],2008 [YR2008],2009 [YR2009],2010 [YR2010],2011 [YR2011],2012 [YR2012],2013 [YR2013],2014 [YR2014],2015 [YR2015],2016 [YR2016],2017 [YR2017],2018 [YR2018],2019 [YR2019]
+Angola,AGO,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,169,169,169,169,96,96
+Benin,BEN,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,108,48,48,48,48,48
+Botswana,BWA,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,24,24,24,18,18,18
+Burkina Faso,BFA,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,84,84,84,84,84,84
+Burundi,BDI,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,120,120,120,120,120,120
+Cabo Verde,CPV,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,48,48,48,24,24,24
+Cameroon,CMR,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,66,66,66,66,66,66
+Central African Republic,CAF,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,48,48,48,48,48,48
+Chad,TCD,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,87,87,87,87,87,87
+Comoros,COM,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,57,57,57,50,50,50
+"Congo, Dem. Rep.",COD,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,314,314,314,314,192,192
+"Congo, Rep.",COG,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,120,120,120,120,120,120
+Cote d'Ivoire,CIV,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,84,84,84,84,84,84
+Equatorial Guinea,GNQ,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,154,154,154,154,154,154
+Eritrea,ERI,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..
+Eswatini,SWZ,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,3.6,3.6,3.6,2,2,2
+Ethiopia,ETH,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,91,91,91,76,76,76
+Gabon,GAB,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,60,60,60,60,60,60
+"Gambia, The",GMB,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,48,48,48,48,48,48
+Ghana,GHA,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,89.3,89.3,89.3,89.3,89.3,89.3
+Guinea,GIN,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,138.7,138.7,138.7,138.7,138.7,138.7
+Guinea-Bissau,GNB,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,60,60,60,60,60,60
+Kenya,KEN,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,19,19,19,19,19,19
+Lesotho,LSO,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,3,3,3,3,1,1
+Liberia,LBR,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,144,144,144,144,144,144
+Madagascar,MDG,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,58.9,58.9,48.9,48.9,48.9,48.9
+Malawi,MWI,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,83,83,83,75,75,75
+Mali,MLI,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,55,48,48,48,48,48
+Mauritania,MRT,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,58.7,58.7,50.7,50.7,50.7,50.7
+Mauritius,MUS,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,9,9,9,9,9,9
+Mozambique,MOZ,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,70.3,70.3,70.3,70.3,36,36
+Namibia,NAM,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,90,90,90,90,90,90
+Niger,NER,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,50.7,50.7,50.7,50.7,50.7,50.7
+Nigeria,NGA,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,131.4,131.4,131.4,131.4,119,74
+Rwanda,RWA,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,42,42,42,42,30,30
+Sao Tome and Principe,STP,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,50.3,46.3,46.3,46.3,46.3,46.3
+Senegal,SEN,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,26,26,26,26,26,26
+Seychelles,SYC,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,43.6,43.6,43.6,43.6,43.6,43.6
+Sierra Leone,SLE,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,133.7,133.7,133.7,72,72,72
+Somalia,SOM,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,..,72.5,72.5,72.5,72.5,72.5
+South Africa,ZAF,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,68,68,68,68,68,68
+South Sudan,SSD,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,192,192,192,192,192,192
+Sudan,SDN,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,190,190,190,190,190,190
+Tanzania,TZA,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,120,96,96,96,96,96
+Togo,TGO,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,15,15,11,11,11,11
+Uganda,UGA,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,63.8,63.8,63.8,51,24,24
+Zambia,ZMB,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,72,130,130,96,96,96
+Zimbabwe,ZWE,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,99,99,99,99,99,99
+East Asia & Pacific,EAS,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,53.3931034483,53.3931034483,51.7103448276,50.524137931,50.0896551724,48.4344827586
+East Asia & Pacific (IDA & IBRD countries),TEA,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,63.4714285714,63.4714285714,61.3857142857,61.3857142857,60.7857142857,58.5
+Euro area,EMU,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,2.1578947368,2.1578947368,2.1578947368,2.1578947368,2.1578947368,2.1578947368
+European Union,EUU,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,1.825,1.825,1.825,1.825,1.825,1.825
+Latin America & Caribbean,LCN,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,58.5818181818,55.3090909091,53.9242424242,51.5606060606,51.5606060606,35.3125
+Latin America & Caribbean (IDA & IBRD countries),TLA,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,60.6,58.6,57.0766666667,54.4766666667,54.4766666667,36.8379310345
+Sub-Saharan Africa,SSF,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,83.9565217391,82.9255319149,82.4574468085,78.8382978723,72.8234042553,71.8659574468
+Sub-Saharan Africa (IDA & IBRD countries),TSS,"Time to export, documentary compliance (hours)",IC.EXP.TMDC,..,..,..,..,..,..,..,..,..,..,..,..,..,..,83.9565217391,82.9255319149,82.4574468085,78.8382978723,72.8234042553,71.8659574468
+,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,
+Data from database: World Development Indicators,,,,,,,,,,,,,,,,,,,,,,,
+Last Updated: 02/27/2020,,,,,,,,,,,,,,,,,,,,,,,

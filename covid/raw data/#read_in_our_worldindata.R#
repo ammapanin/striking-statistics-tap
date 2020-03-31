@@ -39,6 +39,7 @@ latest.date <- max(dt$date)
 general.theme <- theme_minimal() +
     theme(axis.text.x = element_text(size = 6))
 
+
 ### Plot cases
 
 latest.cases <- dt.ssa %>%
