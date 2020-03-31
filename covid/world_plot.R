@@ -47,7 +47,8 @@ world.plot <- ggplot(data = covid.map.df) +
                    size = total_cases)) +
     theme_minimal() +
     theme(axis.title.x = element_blank(),
-          axis.title.y = element_blank())+
+          axis.title.y = element_blank(),
+          axis.text.x = element_blank())+
     scale_size_continuous(name = "Total number of cases",
                           trans =  "log10")
 
@@ -170,3 +171,6 @@ with.population.plot <- landlocked.africa.plot +
                aes(x = Longitude,
                    y = Latitude,
                    size = pop_est))
+
+
+bob <- read_excel("/Users/ammapanin/Downloads/OxCGRT_Download_latest_data.xlsx")
