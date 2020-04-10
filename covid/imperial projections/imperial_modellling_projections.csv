@@ -1,0 +1,67 @@
+region,scenario,outcome,value_absolute,value_scaled
+"East Asia
+& Pacific",Unmitigated,"Infections, in billions",2117131000,2.117131
+"East Asia
+& Pacific",Unmitigated,"Deaths, in millions",15303000,15.303
+"East Asia
+& Pacific",Aggressive suppression,"Infections, in billions",92544000,0.092544
+"East Asia
+& Pacific",Aggressive suppression,"Deaths, in millions",442000,0.442
+"East Asia
+& Pacific",Moderate suppression,"Infections, in billions",632619000,0.632619
+"East Asia
+& Pacific",Moderate suppression,"Deaths, in millions",3315000,3.315
+"Europe
+& Central Asia",Unmitigated,"Infections, in billions",801770000,0.80177
+"Europe
+& Central Asia",Unmitigated,"Deaths, in millions",7276000,7.276
+"Europe
+& Central Asia",Aggressive suppression,"Infections, in billions",61578000,0.061578
+"Europe
+& Central Asia",Aggressive suppression,"Deaths, in millions",279000,0.279
+"Europe
+& Central Asia",Moderate suppression,"Infections, in billions",257706000,0.257706
+"Europe
+& Central Asia",Moderate suppression,"Deaths, in millions",1397000,1.397
+"Latin America
+& Caribbean",Unmitigated,"Infections, in billions",566993000,0.566993
+"Latin America
+& Caribbean",Unmitigated,"Deaths, in millions",3194000,3.194
+"Latin America
+& Caribbean",Aggressive suppression,"Infections, in billions",45346000,0.045346
+"Latin America
+& Caribbean",Aggressive suppression,"Deaths, in millions",158000,0.158
+"Latin America
+& Caribbean",Moderate suppression,"Infections, in billions",186595000,0.186595
+"Latin America
+& Caribbean",Moderate suppression,"Deaths, in millions",729000,0.729
+"Middle East
+& North Africa",Unmitigated,"Infections, in billions",419138000,0.419138
+"Middle East
+& North Africa",Unmitigated,"Deaths, in millions",1700000,1.7
+"Middle East
+& North Africa",Aggressive suppression,"Infections, in billions",30459000,0.030459
+"Middle East
+& North Africa",Aggressive suppression,"Deaths, in millions",113000,0.113
+"Middle East
+& North Africa",Moderate suppression,"Infections, in billions",152262000,0.152262
+"Middle East
+& North Africa",Moderate suppression,"Deaths, in millions",594000,0.594
+North America,Unmitigated,"Infections, in billions",326079000,0.326079
+North America,Unmitigated,"Deaths, in millions",2981000,2.981
+North America,Aggressive suppression,"Infections, in billions",17730000,0.01773
+North America,Aggressive suppression,"Deaths, in millions",92000,0.092
+North America,Moderate suppression,"Infections, in billions",90529000,0.090529
+North America,Moderate suppression,"Deaths, in millions",520000,0.52
+South Asia,Unmitigated,"Infections, in billions",1737766000,1.737766
+South Asia,Unmitigated,"Deaths, in millions",7687000,7.687
+South Asia,Aggressive suppression,"Infections, in billions",111703000,0.111703
+South Asia,Aggressive suppression,"Deaths, in millions",475000,0.475
+South Asia,Moderate suppression,"Infections, in billions",629164000,0.629164
+South Asia,Moderate suppression,"Deaths, in millions",2693000,2.693
+Sub-Saharan Africa,Unmitigated,"Infections, in billions",1044858000,1.044858
+Sub-Saharan Africa,Unmitigated,"Deaths, in millions",2483000,2.483
+Sub-Saharan Africa,Aggressive suppression,"Infections, in billions",110164000,0.110164
+Sub-Saharan Africa,Aggressive suppression,"Deaths, in millions",298000,0.298
+Sub-Saharan Africa,Moderate suppression,"Infections, in billions",454968000,0.454968
+Sub-Saharan Africa,Moderate suppression,"Deaths, in millions",1204000,1.204

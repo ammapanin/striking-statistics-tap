@@ -1,1 +1,0 @@
-ammapanin@Ammas-MacBook-Pro.local.3987

@@ -1,0 +1,55 @@
+"region.code","region","pop2019","deaths2015","scenario","outcome","value","value_absolute","value_scaled","value_pc","pc_deaths"
+"EAS","East Asia
+& Pacific",2328220870,16691429,"Unmitigated","Infections, % of population",2117131000,2117131000,2.117131,90.9334259167602,0.716917763906137
+"EAS","East Asia
+& Pacific",2328220870,16691429,"Unmitigated","Deaths, % of population",15303000,15303000,15.303,0.657283000817702,0.716917763906137
+"EAS","East Asia
+& Pacific",2328220870,16691429,"Aggressive suppression","Infections, % of population",92544000,92544000,0.092544,3.97488061345314,0.716917763906137
+"EAS","East Asia
+& Pacific",2328220870,16691429,"Aggressive suppression","Deaths, % of population",442000,442000,0.442,0.0189844531373864,0.716917763906137
+"EAS","East Asia
+& Pacific",2328220870,16691429,"Moderate suppression","Infections, % of population",632619000,632619000,0.632619,27.1717777360187,0.716917763906137
+"EAS","East Asia
+& Pacific",2328220870,16691429,"Moderate suppression","Deaths, % of population",3315000,3315000,3.315,0.142383398530398,0.716917763906137
+"ECS","Europe
+& Central Asia",918793590,9115079,"Unmitigated","Infections, % of population",801770000,801770000,0.80177,87.2633427928029,0.992070373499232
+"ECS","Europe
+& Central Asia",918793590,9115079,"Unmitigated","Deaths, % of population",7276000,7276000,7.276,0.791908006236744,0.992070373499232
+"ECS","Europe
+& Central Asia",918793590,9115079,"Aggressive suppression","Infections, % of population",61578000,61578000,0.061578,6.70204936889035,0.992070373499232
+"ECS","Europe
+& Central Asia",918793590,9115079,"Aggressive suppression","Deaths, % of population",279000,279000,0.279,0.0303659062314529,0.992070373499232
+"ECS","Europe
+& Central Asia",918793590,9115079,"Moderate suppression","Infections, % of population",257706000,257706000,0.257706,28.0483019042394,0.992070373499232
+"ECS","Europe
+& Central Asia",918793590,9115079,"Moderate suppression","Deaths, % of population",1397000,1397000,1.397,0.152047207904443,0.992070373499232
+"MEA","Middle East
+& North Africa",448912859,2144197,"Unmitigated","Infections, % of population",419138000,419138000,0.419138,93.3673410322158,0.477642143015556
+"MEA","Middle East
+& North Africa",448912859,2144197,"Unmitigated","Deaths, % of population",1700000,1700000,1.7,0.378692649568321,0.477642143015556
+"MEA","Middle East
+& North Africa",448912859,2144197,"Aggressive suppression","Infections, % of population",30459000,30459000,0.030459,6.78505847835381,0.477642143015556
+"MEA","Middle East
+& North Africa",448912859,2144197,"Aggressive suppression","Deaths, % of population",113000,113000,0.113,0.0251719231771884,0.477642143015556
+"MEA","Middle East
+& North Africa",448912859,2144197,"Moderate suppression","Infections, % of population",152262000,152262000,0.152262,33.9179412991598,0.477642143015556
+"MEA","Middle East
+& North Africa",448912859,2144197,"Moderate suppression","Deaths, % of population",594000,594000,0.594,0.132319666966813,0.477642143015556
+"NAC","North America",364290258,2915345,"Unmitigated","Infections, % of population",326079000,326079000,0.326079,89.5107658904236,0.800280802458352
+"NAC","North America",364290258,2915345,"Unmitigated","Deaths, % of population",2981000,2981000,2.981,0.818303518838541,0.800280802458352
+"NAC","North America",364290258,2915345,"Aggressive suppression","Infections, % of population",17730000,17730000,0.01773,4.86699811774818,0.800280802458352
+"NAC","North America",364290258,2915345,"Aggressive suppression","Deaths, % of population",92000,92000,0.092,0.0252545869618067,0.800280802458352
+"NAC","North America",364290258,2915345,"Moderate suppression","Infections, % of population",90529000,90529000,0.090529,24.8507880767978,0.800280802458352
+"NAC","North America",364290258,2915345,"Moderate suppression","Deaths, % of population",520000,520000,0.52,0.142743317610212,0.800280802458352
+"SAS","South Asia",1814388744,12371440,"Unmitigated","Infections, % of population",1737766000,1737766000,1.737766,95.7769389689291,0.681851672686523
+"SAS","South Asia",1814388744,12371440,"Unmitigated","Deaths, % of population",7687000,7687000,7.687,0.423668854065598,0.681851672686523
+"SAS","South Asia",1814388744,12371440,"Aggressive suppression","Infections, % of population",111703000,111703000,0.111703,6.15650865170932,0.681851672686523
+"SAS","South Asia",1814388744,12371440,"Aggressive suppression","Deaths, % of population",475000,475000,0.475,0.0261796156733653,0.681851672686523
+"SAS","South Asia",1814388744,12371440,"Moderate suppression","Infections, % of population",629164000,629164000,0.629164,34.676361506352,0.681851672686523
+"SAS","South Asia",1814388744,12371440,"Moderate suppression","Deaths, % of population",2693000,2693000,2.693,0.14842464212289,0.681851672686523
+"SSF","Sub-Saharan Africa",1078306520,9548298,"Unmitigated","Infections, % of population",1044858000,1044858000,1.044858,96.8980508436507,0.885490148014685
+"SSF","Sub-Saharan Africa",1078306520,9548298,"Unmitigated","Deaths, % of population",2483000,2483000,2.483,0.230268476907661,0.885490148014685
+"SSF","Sub-Saharan Africa",1078306520,9548298,"Aggressive suppression","Infections, % of population",110164000,110164000,0.110164,10.216390048351,0.885490148014685
+"SSF","Sub-Saharan Africa",1078306520,9548298,"Aggressive suppression","Deaths, % of population",298000,298000,0.298,0.0276359267492883,0.885490148014685
+"SSF","Sub-Saharan Africa",1078306520,9548298,"Moderate suppression","Infections, % of population",454968000,454968000,0.454968,42.1928265814437,0.885490148014685
+"SSF","Sub-Saharan Africa",1078306520,9548298,"Moderate suppression","Deaths, % of population",1204000,1204000,1.204,0.111656563107863,0.885490148014685

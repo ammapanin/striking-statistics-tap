@@ -5,15 +5,14 @@ library(sf) ## for working with geo data
 library(tidyverse)
 
 
-figures.path <- "../final figures"
-
-world.plot.path <- file.path(figures.path,
+world.plot.path <- file.path(final.figures.path,
                              "world_covid_cases.png")
 
 world.shapefile.path <- file.path("../datasets",
                                   "WB country polygons",
                                   "WB_CountryPolys.shp")
 world.boundaries.df <- read_sf(world.shapefile.path)
+
 
 covid.dt <- dt  %>%
     filter(date == latest.date)
@@ -34,8 +33,7 @@ covid.map.df <- world.boundaries.df %>%
 caption.text.base <- paste("Source: Our World in Data.",
                            "Last accessed on %s.")
 
-caption.text <- sprintf(caption.text.base,
-                        format(latest.date, "%d %B %Y"))
+caption.text <- sprintf(caption.text.base, latest.date.text)
 
 
 world.plot <- ggplot(data = covid.map.df) +
@@ -60,13 +58,10 @@ world.plot <- ggplot(data = covid.map.df) +
                                                 units = "cm"))
 
 
-ggsave(world.plot.path,
-       plot = world.plot,
-       width  = 24.64,
-       height = 17.03,
-       units = "cm")
-
-
+plot.final <- add.e4t.branding(plot = world.plot,
+                               plot.name = "world_covid_cases",
+                               width.in = 24.64,
+                               height.in = 17.05)
 
 
 

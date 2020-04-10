@@ -1,0 +1,71 @@
+
+
+library(tidyverse)
+library(countrycode)
+
+### Define useful paths ----------------------------------------------
+
+main.dir <- file.path(normalizePath("~"),
+                      "Dropbox",
+                      "Work Documents",
+                      "World Bank",
+                      "amma_striking_stats_local",
+                      "covid")
+
+shared.data.path <- file.path(main.dir, "shared data")
+final.figures.path <- file.path(main.dir,"final figures")
+
+beds.path <- file.path(shared.data.path, "physicians_and_beds.csv")
+
+
+doctors.str <- "Physicians (per 1,000 people)"
+beds.str <- "Hospital beds (per 1,000 people)"
+
+beds.in <- read.csv(beds.path)
+
+beds.long <- beds.in %>%
+    rename_at(.vars = vars(starts_with("X")),
+              function(x){
+                  paste0("y", str_sub(x, start = 2, end = 5))}) %>%
+    mutate_at(.vars = vars(starts_with("y")),
+              function(x){
+                  as.numeric(as.character(x))}) %>%
+    pivot_longer(cols = starts_with("y"),
+                 names_to = "year",
+                 names_prefix = "y") %>%
+    mutate(series = ifelse(Series.Name == doctors.str,
+                           "doctors",
+                    ifelse(Series.Name == beds.str,
+                           "beds",
+                           "the end of the world as we know it"))) %>%
+    select(country = Country.Name,
+           ccode = Country.Code,
+           series,
+           year,
+           value)
+
+
+beds <- beds.long %>%
+    group_by(country, series) %>%
+    group_modify(.f = ~{
+        row.ix <- max(which(!is.na(.x$value)))
+        slice(.x, row.ix)
+    })
+
+
+comparison.countries <- c("USA", "CHN", "ITA")
+ssa.codes <- wb.countries %>%
+    filter(region == "Sub-Saharan Africa") %>%
+    pull(code) %>%
+    as.character()
+
+
+beds.plot <- beds %>%
+    filter(ccode %in% c(comparison.countries, ssa.codes))
+
+beds.plot <- beds.plot %>%
+    ggplot(aes(x = ccode,
+               y = value)) +
+    geom_col() +
+    facet_wrap(~series, ncol = 1) +
+    theme(axis.text.x = element_text(size = 3, angle = 90))
